@@ -50,16 +50,37 @@ const RegistrationForm = () => {
 
     setIsSubmitting(true);
     
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
-    toast({
-      title: "Cadastro realizado com sucesso! 🎉",
-      description: "Bem-vindo ao Boa Saúde+! Em breve você receberá mais informações.",
-    });
-    
-    setFormData({ nome: "", telefone: "", endereco: "", dataNascimento: "" });
-    setIsSubmitting(false);
+    try {
+      // URL do Google Apps Script
+      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzvBz_tSCku56svv05KZSKShXZJB9_bjhrUZJHyTqKBwitVaBLfcD-aJGhZDxLBdI6TZw/exec';
+      
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors', // Necessário para Google Apps Script
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      // Com no-cors, não podemos ler a resposta, então assumimos sucesso
+      toast({
+        title: "Cadastro realizado com sucesso! 🎉",
+        description: "Bem-vindo ao Boa Saúde+! Em breve você receberá mais informações.",
+      });
+      
+      setFormData({ nome: "", telefone: "", endereco: "", dataNascimento: "" });
+      
+    } catch (error) {
+      console.error('Erro ao enviar cadastro:', error);
+      toast({
+        title: "Erro ao realizar cadastro",
+        description: "Por favor, tente novamente em alguns instantes.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
