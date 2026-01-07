@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { User, Phone, MapPin, Calendar, Heart, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -8,6 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 
 const RegistrationForm = () => {
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     nome: "",
@@ -64,12 +66,10 @@ const RegistrationForm = () => {
       });
       
       // Com no-cors, não podemos ler a resposta, então assumimos sucesso
-      toast({
-        title: "Cadastro realizado com sucesso! 🎉",
-        description: "Bem-vindo ao Boa Saúde+! Em breve você receberá mais informações.",
-      });
-      
       setFormData({ nome: "", telefone: "", endereco: "", dataNascimento: "" });
+      
+      // Redireciona para a página de sucesso
+      navigate("/sucesso");
       
     } catch (error) {
       console.error('Erro ao enviar cadastro:', error);

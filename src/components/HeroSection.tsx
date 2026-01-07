@@ -6,7 +6,7 @@ const benefits = [
   {
     icon: Truck,
     title: "Entrega GRÁTIS o ano todo",
-    description: "Receba seus medicamentos e produtos de saúde no conforto da sua casa, sem pagar nada pela entrega.",
+    description: "Para Barra dos Coqueiros e Aracaju. Receba seus medicamentos e produtos de saúde no conforto da sua casa, sem pagar nada pela entrega.",
   },
   {
     icon: Tag,
@@ -16,7 +16,7 @@ const benefits = [
   {
     icon: Gift,
     title: "Sorteio TODO MÊS de R$ 500,00",
-    description: "Participe automaticamente dos sorteios mensais de R$ 500,00 em compras na farmácia.",
+    description: "Participe dos sorteios mensais de R$ 500,00 em compras na farmácia. *Para participar do sorteio o cliente precisa comprar no mês um valor mínimo de R$20,00 em produtos na farmácia.",
   },
 ];
 
