@@ -6,7 +6,7 @@ const benefits = [
   {
     icon: Truck,
     title: "Entrega GRÁTIS o ano todo",
-    description: "Para Barra dos Coqueiros e Aracaju. Receba seus medicamentos e produtos de saúde no conforto da sua casa, sem pagar nada pela entrega.",
+    description: "Receba seus medicamentos e produtos de saúde no conforto da sua casa, sem pagar nada pela entrega. Exclusivo para Barra dos Coqueiros e Aracaju.",
   },
   {
     icon: Tag,
