@@ -45,7 +45,7 @@ const Sucesso = () => {
               </h1>
               
               <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                Seu cadastro foi realizado com sucesso! Agora você faz parte do nosso programa de benefícios exclusivos.
+                Seu cadastro foi realizado com sucesso! Para concluir e fazer parte do programa de beneficios exclusivos entre na Comunidade no Zap:
               </p>
             </motion.div>
 
@@ -62,7 +62,7 @@ const Sucesso = () => {
                   <span className="font-semibold text-green-800">Comunidade WhatsApp</span>
                 </div>
                 <p className="text-sm text-green-700 mb-4">
-                  Entre na nossa comunidade para receber promoções exclusivas, dicas de saúde e ficar por dentro dos sorteios!
+                  Entre na nossa comunidade e confira ofertas excluivas, dicas de saúde e concorra a R$500,00 em compras na Boa saúde. 
                 </p>
                 
                 <Button
