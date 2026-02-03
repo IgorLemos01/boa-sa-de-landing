@@ -38,7 +38,7 @@ const RegistrationForm = () => {
     setFormData((prev) => ({ ...prev, telefone: formatted }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!formData.nome || !formData.telefone || !formData.endereco || !formData.dataNascimento) {
@@ -56,20 +56,37 @@ const RegistrationForm = () => {
       // URL do Google Apps Script
       const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzvBz_tSCku56svv05KZSKShXZJB9_bjhrUZJHyTqKBwitVaBLfcD-aJGhZDxLBdI6TZw/exec';
       
+      // --- MODIFICAÇÃO COMEÇA AQUI ---
+      // 1. Remove tudo que não for número
+      const apenasNumeros = formData.telefone.replace(/\D/g, "");
+      
+      // 2. Adiciona o 55 na frente
+      const telefoneFormatado = `55${apenasNumeros}`;
+
+      // 3. Cria um novo objeto só para enviar (não altera o formData original da tela)
+      const dadosParaEnvio = {
+        ...formData,
+        telefone: telefoneFormatado
+      };
+      // --- FIM DA MODIFICAÇÃO ---
+
       const response = await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors', // Necessário para Google Apps Script
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        // Aqui usamos o objeto modificado 'dadosParaEnvio' em vez de 'formData'
+        body: JSON.stringify(dadosParaEnvio), 
       });
       
       // Com no-cors, não podemos ler a resposta, então assumimos sucesso
-      setFormData({ nome: "", telefone: "", endereco: "", dataNascimento: "" });
+      toast({
+        title: "Cadastro realizado com sucesso! 🎉",
+        description: "Bem-vindo ao Boa Saúde+! Em breve você receberá mais informações.",
+      });
       
-      // Redireciona para a página de sucesso
-      navigate("/sucesso");
+      setFormData({ nome: "", telefone: "", endereco: "", dataNascimento: "" });
       
     } catch (error) {
       console.error('Erro ao enviar cadastro:', error);
