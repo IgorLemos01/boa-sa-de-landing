@@ -83,10 +83,18 @@ const handleSubmit = async (e: React.FormEvent) => {
       // Com no-cors, não podemos ler a resposta, então assumimos sucesso
       toast({
         title: "Cadastro realizado com sucesso! 🎉",
-        description: "Bem-vindo ao Boa Saúde+! Em breve você receberá mais informações.",
+        description: "Bem-vindo ao Boa Saúde+! Redirecionando para a comunidade...",
       });
       
       setFormData({ nome: "", telefone: "", endereco: "", dataNascimento: "" });
+
+      // --- ADICIONE ESTE BLOCO ---
+      // Aguarda 1.5 segundos para o usuário ler a mensagem e então redireciona
+      setTimeout(() => {
+        // COLOQUE O LINK DO SEU GRUPO AQUI
+        window.location.href = "https://chat.whatsapp.com/SEU_CODIGO_DE_CONVITE"; 
+      }, 1500);
+      // ---------------------------
       
     } catch (error) {
       console.error('Erro ao enviar cadastro:', error);
