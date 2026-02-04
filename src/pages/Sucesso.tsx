@@ -45,7 +45,7 @@ const Sucesso = () => {
               </h1>
               
               <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                Seu cadastro foi realizado com sucesso! Para concluir e fazer parte do programa de beneficios exclusivos entre na Comunidade no Zap:
+                Seu cadastro foi realizado com sucesso! Agora você faz parte do nosso programa de benefícios exclusivos.
               </p>
             </motion.div>
 
@@ -56,13 +56,13 @@ const Sucesso = () => {
               transition={{ delay: 0.4 }}
               className="space-y-4"
             >
-              <div className="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl border border-green-200">
+              <div className="p-5 bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl border border-green-200">
                 <div className="flex items-center justify-center gap-2 mb-2">
                   <MessageCircle className="w-5 h-5 text-green-600" />
                   <span className="font-semibold text-green-800">Comunidade WhatsApp</span>
                 </div>
                 <p className="text-sm text-green-700 mb-4">
-                  Entre na nossa comunidade e confira ofertas excluivas, dicas de saúde e concorra a R$500,00 em compras na Boa saúde. 
+                  Entre na nossa comunidade para receber promoções exclusivas, dicas de saúde e ficar por dentro dos sorteios!
                 </p>
                 
                 <Button
